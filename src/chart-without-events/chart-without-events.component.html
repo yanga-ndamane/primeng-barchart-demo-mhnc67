@@ -1,0 +1,7 @@
+<h1>Charts without Events</h1>
+<div
+  style="display: flex; gap: 10px"
+  *ngFor="let newArr of testArr; let i = index"
+>
+  <p-chart type="bar" [data]="data"></p-chart>
+</div>

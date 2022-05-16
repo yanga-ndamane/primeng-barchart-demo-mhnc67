@@ -1,0 +1,15 @@
+<h1>Charts with Events</h1>
+<div
+  style="display: flex; gap: 10px"
+  *ngFor="let newArr of testArr; let i = index"
+>
+  <div
+    *ngIf="i != selected"
+    style="margin-bottom: 20px"
+    (mouseenter)="select(i)"
+  >
+  <i class="pi pi-chart-bar" style="font-size: 4rem"></i>
+
+  </div>
+  <p-chart *ngIf="i === selected" type="bar" [data]="data"></p-chart>
+</div>
