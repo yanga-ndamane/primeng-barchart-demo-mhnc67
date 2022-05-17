@@ -12,6 +12,7 @@ import { Router, RouterModule, Routes } from '@angular/router';
 import { ChartsWithEventsComponent } from '../charts-with-events/charts-with-events.component';
 import { ChartWithoutEventsComponent } from '../chart-without-events/chart-without-events.component';
 import { CommonModule } from '@angular/common';
+import { TableModule } from 'primeng/table/table';
 
 @NgModule({
   imports: [
@@ -21,6 +22,7 @@ import { CommonModule } from '@angular/common';
     ToastModule,
     FormsModule,
     CommonModule,
+    TableModule
   ],
   declarations: [
     AppComponent,
