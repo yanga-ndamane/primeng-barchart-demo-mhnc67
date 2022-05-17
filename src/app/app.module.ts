@@ -22,7 +22,6 @@ import { TableModule } from 'primeng/table/table';
     ToastModule,
     FormsModule,
     CommonModule,
-    TableModule
   ],
   declarations: [
     AppComponent,
