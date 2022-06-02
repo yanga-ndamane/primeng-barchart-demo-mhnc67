@@ -6,8 +6,8 @@ import { Pipe, PipeTransform } from '@angular/core';
 })
 export class LazyLoadDataPipe implements PipeTransform {
   intervalFlag: number = 0;
-  loadRows: number = 50;
-  items = [];
+  loadRows: number = 0;
+  // items = [];
   /*
    * @param items : object from array
    * @param intialLoadRows : number of row we want to load initially
@@ -22,19 +22,23 @@ export class LazyLoadDataPipe implements PipeTransform {
     intervalLoadRows: number = 100,
     interval: number = 100
   ): any[] {
-    this.items = items;
-    console.log(items);
+    // this.items = items;
+    console.log(items.length);
+    console.log(initialLoadRows)
+    console.log(interval)
     if (this.intervalFlag == 0) {
       this.intervalFlag = 1;
       // const that = this;
       this.loadRows = initialLoadRows;
       const inter = setInterval(() => {
         console.log('Loading..');
-        if (this.items && this.items.length) {
-          if (this.items.length > this.loadRows) {
+        if (items && items.length) {
+          if (items.length > this.loadRows) {
+            console.log('InLR', this.loadRows + intervalLoadRows)
             this.loadRows = this.loadRows + intervalLoadRows;
           } else {
             if (inter) {
+              console.log('inter');
               clearInterval(inter);
             }
           }

@@ -5,10 +5,10 @@
     <th>Charts</th>
     <th>Nothing</th>
   </tr>
-  <tr *ngFor="let newArr of testArr | lazyLoadData">
+  <tr *ngFor="let newArr of testArr | lazyLoadData:25">
     <td>{{ newArr }}</td>
     <td>
-      <!-- <p-chart type="bar" [data]="data"></p-chart> -->
+      <p-chart type="bar" [data]="data"></p-chart>
     </td>
     <td></td>
   </tr>
