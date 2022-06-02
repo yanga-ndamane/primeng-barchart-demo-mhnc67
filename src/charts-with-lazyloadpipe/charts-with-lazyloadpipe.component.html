@@ -1,0 +1,17 @@
+<p>
+charts-with-lazyloadpipe works!
+</p>
+<table>
+<tr>
+  <th>Index</th>
+  <th>Charts</th>
+  <th>Nothing</th>
+</tr>
+<tr *ngFor="let newArr of testArr; let i = index">
+  <td>{{ i }}</td>
+  <td>
+    <p-chart type="bar" [data]="data"></p-chart>
+  </td>
+  <td></td>
+</tr>
+</table>

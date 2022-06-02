@@ -20,10 +20,10 @@
     <th>Charts</th>
     <th>Nothing</th>
   </tr>
-  <tr *ngFor="let newArr of testArr | lazyLoadData; let i = index">
+  <tr *ngFor="let newArr of testArr; let i = index">
     <td>{{ i }}</td>
     <td>
-      <p-chart type="bar" [data]="data"></p-chart>
+      <p-chart *ngIf="i === selected" type="bar" [data]="data"></p-chart>
       <i
         *ngIf="i != selected"
         style="margin-bottom: 20px"

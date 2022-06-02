@@ -14,7 +14,7 @@ import { ChartWithoutEventsComponent } from '../chart-without-events/chart-witho
 import { CommonModule } from '@angular/common';
 import { TableModule } from 'primeng/table/table';
 import { LazyLoadDataPipe } from './lazy-load-data.pipe';
-
+import { ChartsWithLazyloadpipeComponent } from '../charts-with-lazyloadpipe/charts-with-lazyloadpipe.component';
 
 @NgModule({
   imports: [
@@ -29,7 +29,8 @@ import { LazyLoadDataPipe } from './lazy-load-data.pipe';
     AppComponent,
     ChartWithoutEventsComponent,
     ChartsWithEventsComponent,
-    LazyLoadDataPipe
+    LazyLoadDataPipe,
+    ChartsWithLazyloadpipeComponent,
   ],
   bootstrap: [AppComponent],
 })

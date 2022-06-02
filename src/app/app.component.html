@@ -1,7 +1,11 @@
 <div class="nav">
   <button (click)="selected = 1">Current Issue</button>
   <button (click)="selected = 0">Solution</button>
+  <button (click)="selected = 2">Solution 2</button>
 </div>
 
 <app-charts-with-events *ngIf="selected == 0"></app-charts-with-events>
-<app-chart-without-events ></app-chart-without-events>
+<app-chart-without-events *ngIf="selected == 1"></app-chart-without-events>
+<app-charts-with-lazyloadpipe
+  *ngIf="selected == 2"
+></app-charts-with-lazyloadpipe>

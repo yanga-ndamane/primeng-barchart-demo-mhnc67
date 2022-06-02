@@ -1,19 +1,16 @@
 import { Component, Input, OnInit } from '@angular/core';
 
 @Component({
-  selector: 'app-chart-without-events',
-  templateUrl: './chart-without-events.component.html',
-  styleUrls: ['./chart-without-events.component.css'],
+  selector: 'app-charts-with-lazyloadpipe',
+  templateUrl: './charts-with-lazyloadpipe.component.html',
+  styleUrls: ['./charts-with-lazyloadpipe.component.css'],
 })
-export class ChartWithoutEventsComponent implements OnInit {
+export class ChartsWithLazyloadpipeComponent implements OnInit {
   data: any;
   @Input() numberOfArrays: number = 300;
   testArr = new Array(this.numberOfArrays);
 
-  // ngOnChanges(changes: SimpleChanges) {
-  //   this.numOfArrays = new Array(changes.numberOfArrays.currentValue);
-  //   console.log(changes.numberOfArrays.currentValue);
-  // }
+  constructor() {}
 
   ngOnInit() {
     this.data = {
