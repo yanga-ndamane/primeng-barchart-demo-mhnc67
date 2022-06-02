@@ -22,23 +22,15 @@ export class LazyLoadDataPipe implements PipeTransform {
     intervalLoadRows: number = 100,
     interval: number = 100
   ): any[] {
-    // this.items = items;
-    console.log(items.length);
-    console.log(initialLoadRows)
-    console.log(interval)
     if (this.intervalFlag == 0) {
       this.intervalFlag = 1;
-      // const that = this;
       this.loadRows = initialLoadRows;
       const inter = setInterval(() => {
-        console.log('Loading..');
         if (items && items.length) {
           if (items.length > this.loadRows) {
-            console.log('InLR', this.loadRows + intervalLoadRows)
             this.loadRows = this.loadRows + intervalLoadRows;
           } else {
             if (inter) {
-              console.log('inter');
               clearInterval(inter);
             }
           }
@@ -46,7 +38,6 @@ export class LazyLoadDataPipe implements PipeTransform {
       }, interval);
     }
     if (items && items.length) {
-      console.log('counter', this.loadRows);
       return items.slice(0, this.loadRows);
     }
   }
