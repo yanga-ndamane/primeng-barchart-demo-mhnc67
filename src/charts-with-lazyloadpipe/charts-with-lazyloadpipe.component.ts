@@ -8,11 +8,15 @@ import { Component, Input, OnInit } from '@angular/core';
 export class ChartsWithLazyloadpipeComponent implements OnInit {
   data: any;
   @Input() numberOfArrays: number = 300;
-  testArr = new Array(this.numberOfArrays);
+  testArr = [];
 
   constructor() {}
 
   ngOnInit() {
+    for (let i = 0; i < 300; i++) {
+      this.testArr.push(i);
+    }
+
     this.data = {
       labels: ['January', 'February', 'March', 'April', 'May', 'June', 'July'],
       datasets: [

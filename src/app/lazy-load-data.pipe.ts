@@ -2,6 +2,7 @@ import { Pipe, PipeTransform } from '@angular/core';
 
 @Pipe({
   name: 'lazyLoadData',
+  pure: false,
 })
 export class LazyLoadDataPipe implements PipeTransform {
   intervalFlag: number = 0;
@@ -16,20 +17,22 @@ export class LazyLoadDataPipe implements PipeTransform {
    * @returns : list of objects with respect to : from and to index
    */
   transform(
-    items: any,
+    items: any[],
     initialLoadRows: number = 50,
     intervalLoadRows: number = 100,
     interval: number = 100
-  ): any {
+  ): any[] {
     this.items = items;
+    console.log(items);
     if (this.intervalFlag == 0) {
       this.intervalFlag = 1;
-      const that = this;
+      // const that = this;
       this.loadRows = initialLoadRows;
       const inter = setInterval(() => {
-        if (that.items && that.items?.length) {
-          if (that.items?.length > that.loadRows) {
-            that.loadRows = that.loadRows + intervalLoadRows;
+        console.log('Loading..');
+        if (this.items && this.items.length) {
+          if (this.items.length > this.loadRows) {
+            this.loadRows = this.loadRows + intervalLoadRows;
           } else {
             if (inter) {
               clearInterval(inter);
@@ -38,7 +41,7 @@ export class LazyLoadDataPipe implements PipeTransform {
         }
       }, interval);
     }
-    if (items && items?.lenght) {
+    if (items && items.length) {
       console.log('counter', this.loadRows);
       return items.slice(0, this.loadRows);
     }
